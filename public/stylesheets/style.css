@@ -111,10 +111,15 @@ input {
   padding: 0 40px; }
 
 #clipboard-btn {
-  border-color: black;
+  margin-top: 20px;
+  border-color: none;
   color: black; }
 
 .mini-nav {
   padding-top: 30px; }
+
+.proper-font {
+  margin: -5px;
+  font-size: 3rem; }
 
 /*# sourceMappingURL=style.css.map */

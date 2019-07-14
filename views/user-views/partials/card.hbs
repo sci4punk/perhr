@@ -1,0 +1,36 @@
+<div class="col s12 m12 l8 center" id="left">
+  <p class="green-text"><small>Last updated: {{user.updated_at}}</small></p>
+  {{#if user.fullName}}
+  <h1>{{user.fullName}}</h1>
+  {{/if}}
+
+  {{#if user.title}}
+  <h4><i>{{user.title}}</i></h4>
+  {{/if}}
+
+  {{#if user.rate}}
+  <p class="proper-font brand-logo green-text">${{user.rate}} per<span id="dot">.</span>hr</p>
+  {{/if}}
+
+  {{#unless user.location.hide}}
+  <h5><i class="material-icons tiny">location_on</i> {{user.location}}</h5>
+  {{/unless}}
+
+  {{#unless user.email.hide}}
+  <h5><i class="material-icons tiny">email</i> {{user.email}}</h5>
+  {{/unless}}
+
+  {{#unless user.phone.hide}}
+  <h5><i class="material-icons tiny">phone</i> {{user.phone}}</h5>
+  {{/unless}}
+
+  {{#if user.portfolio}}
+  <h3>Portfolios</h3>
+  <h5>{{user.portfolio}}</h5>
+  {{/if}}
+
+  {{#if user.skills}}
+  <h3>Skills</h3>
+  <h5>{{user.skills}}</h5>
+  {{/if}}
+</div>

@@ -9,7 +9,11 @@ const userSchema = new Schema ({
     linkedin: {type: Boolean, default: false},
     fullName: String,
     title: String,
-    location: String
+    location: String,
+    phone: String,
+    rate: Number,
+    portfolio: {type: Schema.Types.ObjectId, ref: 'Portfolio'},
+    skills: {type: Schema.Types.ObjectId, ref: 'Skill'}
 }, {
     timestamps: {
       createdAt: "created_at",

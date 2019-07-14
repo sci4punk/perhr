@@ -134,10 +134,12 @@ input {
   color: black;
   padding: 0 40px;
   // font-weight: bold;
+  // overflow: scroll;
 }
 
 #clipboard-btn {
-  border-color: black;
+  margin-top: 20px;
+  border-color: none;
   color: black;
 }
 
@@ -145,4 +147,7 @@ input {
   padding-top: 30px;
 }
 
- 
+ .proper-font {
+  margin: -5px;
+  font-size: 3rem;
+ }
