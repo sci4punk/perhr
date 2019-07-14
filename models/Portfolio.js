@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const portfolioSchema = new Schema({
-  name: String,
-  url: String,
-  icon: String
+  siteName: {type: String, required: true},
+  siteUurl: {type: String, unqiue: true, required: true},
+  siteIcon: String
 }, {
   timestamps: {
     createdAt: "created_at",

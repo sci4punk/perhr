@@ -1,0 +1,17 @@
+<div class="inside">
+  <div class="row">
+    {{> card}}
+    <div class="col s12 m12 l4" id="right">
+      <div class="mini-nav center">
+        <a href="/profile/{{user._id}}/edit"><button class="btn-small blue darken-3">Edit Profile</button></a>
+        <button class="btn-small black">Portfolio</button> 
+        <button class="btn-small black">Skills</button>
+      </div>
+      <h3>Skills</h3>
+      <form disabled>
+      <div class="input-field"><label>Skills</label>
+      <input type="textarea" name="icons" value="{{user.skill.icons}}" readonly></div>
+      </form>
+    </div>
+  </div>
+</div>

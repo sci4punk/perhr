@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const skillSchema = new Schema({
-  name: String,
+  name: {type: String, unqiue: true, required: true},
   icon: String
 }, {
   timestamps: {

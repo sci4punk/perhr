@@ -42,7 +42,42 @@ console.log(`This is the username: ${theUsername}`);
     })
 })
 
+// PORTFOLIO ROUTES
+router.get('/profile/:id/portfolio/edit', (req, res, next)=>{
+  let userId = req.params.id;
+  User.findById(userId)
+  .then((oneSingleUser)=>{
+    res.render('user-views/portfolio/edit', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
 
+router.post('/profile/:id/portfolio/edit', (req, res, next)=>{
+  let theID = req.params.id
+  User.findByIdAndUpdate(theID, req.body)
+  .then(()=>{
+    res.redirect(`/profile/${theID}/portfolio`);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+router.get('/profile/:id/portfolio', (req, res, next)=>{
+  
+  let userId = req.params.id;
+  User.findById(userId)
+  .then((oneSingleUser)=>{
+    res.render('user-views/portfolio/show', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+// PROFILE ROUTES
 router.get('/profile/:id/edit', (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
@@ -77,6 +112,8 @@ router.get('/profile/:id', (req, res, next)=>{
     next(err);
   })
 });
+
+// LOGIN ROUTES
 
 router.get('/login', (req, res, next)=>{
     res.render('user-views/login')

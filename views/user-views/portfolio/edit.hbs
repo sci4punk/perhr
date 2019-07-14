@@ -3,12 +3,12 @@
     {{> card}}
     <div class="col s12 m12 l4" id="right">
       <div class="mini-nav center">
-        <a href="/profile/{{user._id}}"><button class="btn-small red darken-3">Cancel Edit</button></a>
-        <button class="btn-small black" disabled>Portfolio</button> 
+        <button class="btn-small black" disabled>Profile</button> 
+        <a href="/profile/{{user._id}}/portfolio"><button class="btn-small red darken-3">Cancel Edit</button></a>
         <button class="btn-small black" disabled>Skills</button>
       </div>
-      <h3>Edit Profile</h3>
-      <form action="/profile/{{user._id}}/edit" method="POST">
+      <h3>Edit Portfolio</h3>
+      {{!-- <form action="/profile/{{user._id}}/edit" method="POST">
       <div class="input-field"><label>Name</label>
       <input type="text" name="fullName" value="{{user.fullName}}"></div>
       <div class="input-field"><label>Title</label>
@@ -22,7 +22,7 @@
       <div class="input-field"><label>Per Hour Rate ($)</label>
       <input type="number" name="rate" value="{{user.rate}}"></div>
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
-      </form>
+      </form> --}}
     </div>
   </div>
 </div>
