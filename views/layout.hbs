@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+
+<div class="navbar-fixed">
+  <nav class="black" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo green-text">per<span id="dot">.</span>hr</a>
+    {{#if user}}
+    <ul class="right hide-on-med-and-down">
+      <li><input class="white-text" type="text" value="per.hr/profile/{{user._id}}" id="clipboard-btn" onclick="copyToClipboard()" size="38" style="width=100%;border:none;outline:none;decoration:none" readonly></li>
+    </ul>
+    {{/if}}
+
+      {{!-- <ul class="right hide-on-med-and-down">
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="#">Employer?</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="#">Employer?</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
+    </div>
+  </nav>
+</div>
+
+
+  {{{body}}}
+
+<div class="footer-copyright black center">
+  <div class="container white-text">
+    Made with <span id="heart">&#10084;</span> in Miami @ <a href="http://www.ironhack.com" target="_blank">Ironhack</a> by Steve Englander | <a href="https://www.linkedin.com/in/recsci" target="_blank">LinkedIn</a> | <a href="https://github.com/confidenti-al" target="_blank">Github</a>
+  </div>
+</div>
+
+<script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+<script src="/javascripts/script.js"></script>
+</body>
+</html>

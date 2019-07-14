@@ -1,0 +1,148 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px; 
+}
+
+a {
+  color: #00B7FF;
+}
+
+#dot {
+  color: blue;
+}
+
+input {
+  border-bottom: 0px solid #999 !important;
+  box-shadow: 0 1px 0 0 #999 !important;
+  }
+
+ /* label color */
+ .input-field label {
+  color: #333;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+#heart {
+  color: red;
+}
+
+.footer-copyright {
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.brand-logo {
+  font-weight: bold;
+}
+
+.home-background {
+  background-image: url('../images/nyc-street.jpg');
+  background-size: cover;
+  height: 88vh;
+}
+
+.inside {
+  background-color: black;
+  // border: 1px solid red;
+  height: 85vh;
+  padding: 0 220px;
+}
+
+.highlighted {
+  background-color: rgba(0,0,0,.7);
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+  margin: 10px 0 0 0;
+}
+
+#middle {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  height: 83vh;
+}
+
+#download-button {
+  margin: 40px 0 40px 0;
+  font-weight: bold;
+}
+
+#linkedin-button {
+  margin: 40px 0 40px 0;
+  vertical-align: middle;
+}
+
+#linkedin-text {
+  font-weight: bold;
+}
+
+.save-btn {
+  font-weight: bold;
+}
+
+.btn-large {
+  border-radius: 0;
+}
+
+#left {
+  background-color: #333333;
+  // border: 1px solid purple;
+  height: 85vh;
+  color: white;
+}
+
+#right {
+  background-color: #cccccc;
+  // border: 1px solid green;
+  height: 85vh;
+  color: black;
+  padding: 0 40px;
+  // font-weight: bold;
+}
+
+#clipboard-btn {
+  border-color: black;
+  color: black;
+}
+
+.mini-nav {
+  padding-top: 30px;
+}
+
+ 
