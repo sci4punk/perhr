@@ -59,7 +59,7 @@ input {
 
 .footer-copyright {
   padding: 20px 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
 }
@@ -71,13 +71,13 @@ input {
 .home-background {
   background-image: url('../images/nyc-street.jpg');
   background-size: cover;
-  height: 88vh;
+  height: 90vh;
 }
 
 .inside {
   background-color: black;
   // border: 1px solid red;
-  height: 85vh;
+  height: 100%;
   padding: 0 220px;
 }
 

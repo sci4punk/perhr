@@ -2,7 +2,11 @@
   <div class="row">
     {{> card}}
     <div class="col s12 m12 l4" id="right">
-      {{!-- <div class="mini-nav center"><button class="btn-small blue">Profile</button> <button class="btn-small black">Portfolio</button> <button class="btn-small black">Skills</button></div> --}}
+      <div class="mini-nav center">
+        <a href="/profile/{{user._id}}"><button class="btn-small red darken-3">Cancel Edit</button></a>
+        <button class="btn-small black">Portfolio</button> 
+        <button class="btn-small black">Skills</button>
+      </div>
       <h3>Edit Profile</h3>
       <form action="/profile/{{user._id}}/edit" method="POST">
       <div class="input-field"><label>Name</label>
@@ -22,7 +26,6 @@
         React.js
         <i class="close material-icons">close</i>
       </div> --}}
-
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
       </form>
     </div>
