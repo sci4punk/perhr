@@ -42,6 +42,41 @@ console.log(`This is the username: ${theUsername}`);
     })
 })
 
+// SKILLS ROUTES
+router.get('/profile/:id/skills/edit', (req, res, next)=>{
+  let userId = req.params.id;
+  User.findById(userId)
+  .then((oneSingleUser)=>{
+    res.render('user-views/skills/edit', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+router.post('/profile/:id/skills/edit', (req, res, next)=>{
+  let theID = req.params.id
+  User.findByIdAndUpdate(theID, req.body)
+  .then(()=>{
+    res.redirect(`/profile/${theID}/skills`);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+router.get('/profile/:id/skills', (req, res, next)=>{
+  
+  let userId = req.params.id;
+  User.findById(userId)
+  .then((oneSingleUser)=>{
+    res.render('user-views/skills/show', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
 // PORTFOLIO ROUTES
 router.get('/profile/:id/portfolio/edit', (req, res, next)=>{
   let userId = req.params.id;
