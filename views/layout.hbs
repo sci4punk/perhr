@@ -18,22 +18,10 @@
     {{#if user}}
     <ul class="right hide-on-med-and-down">
       <li><input class="white-text" type="text" value="per.hr/profile/{{user._id}}" id="clipboard-btn" onclick="copyToClipboard()" size="38" readonly></li>
-      <li><a href="/logout"><i class="tiny material-icons">power_settings_new</i></a></li>
     </ul>
     {{/if}}
 
-      {{!-- <ul class="right hide-on-med-and-down">
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="#">Employer?</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="#">Employer?</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
+      {{!-- <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
     </div>
   </nav>
 </div>
@@ -43,11 +31,13 @@
 
 <div class="footer-copyright black center">
   <div class="container white-text">
-    Made with <span id="heart">&#10084;</span> in Miami @ <a href="http://www.ironhack.com" target="_blank">Ironhack</a> by Steve Englander | <a href="https://www.linkedin.com/in/recsci" target="_blank">LinkedIn</a> | <a href="https://github.com/confidenti-al" target="_blank">Github</a>
+    Made with <span id="heart">&#10084;</span> in Miami @ <a href="http://www.ironhack.com" target="_blank">Ironhack</a> by Steve Englander | <a href="https://www.linkedin.com/in/recsci" target="_blank">LinkedIn</a> | <a href="https://github.com/confidenti-al" target="_blank">Github</a>{{#if user}}<a href="/logout"><span class="right" id="logout">Logout</span></a>{{/if}}
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+<script src="/javascripts/skills.js"></script>
 <script src="/javascripts/script.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const skillSchema = new Schema({
-  name: {type: String, unqiue: true, required: true},
-  icon: String
+  name: { type: String, unique: true, required: true },
+  icon: { type: String, default: '/images/default.png' }
 }, {
   timestamps: {
     createdAt: "created_at",
@@ -12,6 +12,6 @@ const skillSchema = new Schema({
   }
 });
 
-const SkillModel = mongoose.model("Skill", skillSchema);
+const Skill = mongoose.model("Skill", skillSchema);
 
 module.exports = Skill;

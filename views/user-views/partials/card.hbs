@@ -8,6 +8,12 @@
   <h4><i>{{user.title}}</i></h4>
   {{/if}}
 
+  {{#if user.skills}}
+  {{#each user.skills}}
+  <div class="chip black white-text" id="chip"><img src="{{icon}}" alt="{{name}}">{{name}}</div>
+  {{/each}}
+  {{/if}}
+
   {{#if user.rate}}
   <p class="proper-font brand-logo green-text">${{user.rate}} per<span id="dot">.</span>hr</p>
   {{/if}}
@@ -29,8 +35,4 @@
   <h5>{{user.portfolio}}</h5>
   {{/if}}
 
-  {{#if user.skills}}
-  <h3>Skills</h3>
-  <h5>{{user.skills}}</h5>
-  {{/if}}
 </div>

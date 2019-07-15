@@ -12,8 +12,8 @@ const userSchema = new Schema ({
     location: String,
     phone: String,
     rate: Number,
-    portfolio: {type: Schema.Types.ObjectId, ref: 'Portfolio'},
-    skills: {type: Schema.Types.ObjectId, ref: 'Skill'}
+    portfolio: Array,
+    skills: Array
 }, {
     timestamps: {
       createdAt: "created_at",

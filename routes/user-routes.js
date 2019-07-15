@@ -58,7 +58,7 @@ router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (re
 
 router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
-  User.findByIdAndUpdate(theID, req.body)
+  User.findByIdAndUpdate(theID, {$push: {"skills": {name: req.body.name, icon: req.body.icon}}}, {upsert: true, new: true})
   .then(()=>{
     res.redirect(`/profile/${theID}/skills`);
   })

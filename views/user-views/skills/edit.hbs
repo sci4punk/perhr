@@ -1,28 +1,27 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l4" id="right">
+    <div class="col s12 m12 l4" id="right" style="overflow:auto">
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <button class="btn-small black" disabled>Portfolio</button>
         <a href="/profile/{{user._id}}/skills"><button class="btn-small red darken-3">Cancel</button></a>
       </div>
       <h3>Edit Skills</h3>
-      {{!-- <form action="/profile/{{user._id}}/edit" method="POST">
-      <div class="input-field"><label>Name</label>
-      <input type="text" name="fullName" value="{{user.fullName}}"></div>
-      <div class="input-field"><label>Title</label>
-      <input type="text" name="title" value="{{user.title}}"></div>
-      <div class="input-field"><label>Where</label>
-      <input type="text" name="location" value="{{user.location}}"></div>
-      <div class="input-field"><label>Email</label>
-      <input type="text" name="email" value="{{user.email}}"></div>
-      <div class="input-field"><label>Phone</label>
-      <input type="text" name="phone" value="{{user.phone}}"></div>
-      <div class="input-field"><label>Per Hour Rate ($)</label>
-      <input type="number" name="rate" value="{{user.rate}}"></div>
+      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
+      <form action="/profile/{{user._id}}/skills/edit" method="POST">
+      {{#if user.skills}}
+      {{#each user.skills}}
+      <div class="chip black white-text" id="chip-edit"><img src="{{icon}}" alt="{{name}}">{{name}} <i class="close material-icons">close</i></div>
+      {{/each}}
+      {{/if}}
+      <div class="input-field"><label>Skill Name</label>
+      <input type="text" name="name" required></div>
+      <div class="input-field"><label>Github Image URL</label>
+      <input type="text" name="icon" required></div>
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
-      </form> --}}
+      </form>
+      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
     </div>
   </div>
 </div>

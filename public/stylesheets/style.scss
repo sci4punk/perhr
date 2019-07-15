@@ -9,6 +9,14 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+  margin: 20px;
+}
+
+h4 {
+  margin-bottom: 25px;
+}
+
 #dot {
   color: blue;
 }
@@ -99,12 +107,12 @@ input {
 }
 
 #download-button {
-  margin: 40px 0 40px 0;
+  margin: 20px 0 20px 0;
   font-weight: bold;
 }
 
 #linkedin-button {
-  margin: 40px 0 40px 0;
+  margin: 20px 0 20px 0;
   vertical-align: middle;
 }
 
@@ -125,6 +133,7 @@ input {
   // border: 1px solid purple;
   height: 85vh;
   color: white;
+  padding: 0 25px;
 }
 
 #right {
@@ -140,35 +149,34 @@ input {
 #clipboard-btn {
   margin-top: 20px;
   border-color: none;
-  color: black;
 }
 
 .mini-nav {
   padding-top: 30px;
 }
 
- .proper-font {
-  margin: -5px;
+.proper-font {
+  margin: 5px;
   font-size: 3rem;
- }
+}
 
- #login-link {
+#login-link {
   padding: -20px;
- }
+}
 
- .linkedin-upshift {
+.linkedin-upshift {
   margin: -200px 0 0 0;
- }
+}
 
- #login-left {
+#login-left {
   background-color: gray;
   // border: 1px solid purple;
   height: 85vh;
   color: white;
   padding: 0 40px;
- }
+}
 
- #signup-right {
+#signup-right {
   background-color: #cccccc;
   // border: 1px solid green;
   height: 85vh;
@@ -176,4 +184,17 @@ input {
   padding: 0 40px;
   // font-weight: bold;
   // overflow: scroll;
- }
+}
+
+#logout {
+  font-weight: bold;
+}
+
+#chip {
+  font-size: 20px;
+  margin: 5px;
+}
+
+#chip-edit {
+  margin: 2px;
+}

@@ -4,9 +4,9 @@
       <h3>Login</h3>
       <form action="/login" method="POST">
       <div class="input-field"><label>Username</label>
-      <input type="text" name="username"></div>
+      <input type="text" name="username" required></div>
       <div class="input-field"><label>Password</label>
-      <input type="password" name="password"></div>
+      <input type="password" name="password" required></div>
       <button class="btn-large save-btn waves-effect waves-light green right">Login</button>
       </form>
     </div>
@@ -14,16 +14,16 @@
       <h3>Sign Up</h3>
       <form action="/signup" method="POST">
       <div class="input-field"><label>Full Name</label>
-      <input type="text" name="theFullName"></div>
-      <div class="input-field"><label>Choose a Username</label>
-      <input type="text" name="theUsername"></div>
+      <input type="text" name="theFullName" required></div>
+      <div class="input-field"><label>Username</label>
+      <input type="text" name="theUsername" required></div>
       <div class="input-field"><label>Email Address</label>
-      <input type="text" name="phone"></div>
+      <input type="text" name="theEmail" required></div>
       <div class="input-field"><label>Password</label>
-      <input type="password" name="thePassword"></div>
+      <input type="password" name="thePassword" required></div>
       <button class="btn-large save-btn waves-effect waves-light green right">Sign Up</button>
       </form>
-    </div>
+    </div>s
     <div class="col s12 m12 l12 linkedin-upshift center">
       <a href="/auth/linkedin" id="linkedin-button" class="btn-large waves-effect waves-light blue"><i class="fab fa-linkedin-in"></i></a><a href="/auth/linkedin" id="linkedin-button" class="btn-large waves-effect waves-light blue"><span id="linkedin-text"> Or Sign In with LinkedIn</span></a>
     </div>

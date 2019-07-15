@@ -10,3 +10,13 @@ function copyToClipboard() {
   copyText.select();
   document.execCommand("copy");
 }
+
+
+function valueChanged()
+{
+    if($('check-email').is(":checked"))   
+        $(".email").hide();
+    else
+        $(".email");
+}
+</script>

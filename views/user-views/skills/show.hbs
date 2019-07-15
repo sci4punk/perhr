@@ -8,14 +8,17 @@
         <a href="/profile/{{user._id}}/skills/edit"><button class="btn-small blue darken-3">Edit Skills</button></a>
       </div>
       <h3>Skills</h3>
-      {{!-- <form disabled>
-      <div class="input-field"><label>Site</label>
-      <input type="text" name="siteName" value="{{user.portfolio.siteName}}" readonly></div>
-      <div class="input-field"><label>URL</label>
-      <input type="text" name="siteUrl" value="{{user.portfolio.siteUrl}}" readonly></div>
-      <div class="input-field"><label>Icon</label>
-      <input type="text" name="siteIcon" value="{{user.portfolio.siteIcon}}" readonly></div>
-      </form> --}}
+      
+      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
+   
+      {{#if user.skills}}
+      {{#each user.skills}}
+      <div class="chip black white-text" id="chip-edit"><img src="{{icon}}" alt="{{name}}">{{name}}</div>
+      {{/each}}
+      {{/if}}
+      
+      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
+
     </div>
   </div>
 </div>
