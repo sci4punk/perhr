@@ -45,7 +45,7 @@ console.log(`This is the username: ${theUsername}`);
 })
 
 // SKILLS ROUTES
-router.get('/profile/:id/skills/edit', (req, res, next)=>{
+router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
   .then((oneSingleUser)=>{
@@ -56,7 +56,7 @@ router.get('/profile/:id/skills/edit', (req, res, next)=>{
   })
 });
 
-router.post('/profile/:id/skills/edit', (req, res, next)=>{
+router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
   User.findByIdAndUpdate(theID, req.body)
   .then(()=>{
@@ -67,7 +67,7 @@ router.post('/profile/:id/skills/edit', (req, res, next)=>{
   })
 });
 
-router.get('/profile/:id/skills', (req, res, next)=>{
+router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
   User.findById(userId)
@@ -80,7 +80,7 @@ router.get('/profile/:id/skills', (req, res, next)=>{
 });
 
 // PORTFOLIO ROUTES
-router.get('/profile/:id/portfolio/edit', (req, res, next)=>{
+router.get('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
   .then((oneSingleUser)=>{
@@ -91,7 +91,7 @@ router.get('/profile/:id/portfolio/edit', (req, res, next)=>{
   })
 });
 
-router.post('/profile/:id/portfolio/edit', (req, res, next)=>{
+router.post('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
   User.findByIdAndUpdate(theID, req.body)
   .then(()=>{
@@ -102,7 +102,7 @@ router.post('/profile/:id/portfolio/edit', (req, res, next)=>{
   })
 });
 
-router.get('/profile/:id/portfolio', (req, res, next)=>{
+router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
   User.findById(userId)
@@ -115,7 +115,7 @@ router.get('/profile/:id/portfolio', (req, res, next)=>{
 });
 
 // PROFILE ROUTES
-router.get('/profile/:id/edit', (req, res, next)=>{
+router.get('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
   .then((oneSingleUser)=>{
@@ -126,7 +126,7 @@ router.get('/profile/:id/edit', (req, res, next)=>{
   })
 });
 
-router.post('/profile/:id/edit', (req, res, next)=>{
+router.post('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
   User.findByIdAndUpdate(theID, req.body)
   .then(()=>{
@@ -150,7 +150,7 @@ router.get('/profile/:id', (req, res, next)=>{
   })
 });
 
-// LOGIN ROUTES
+// LOGIN LOGOUT ROUTES
 router.get('/login', (req, res, next)=>{
     res.render('user-views/login')
 })
@@ -161,17 +161,18 @@ router.post('/login',
   res.redirect('/profile/' + req.user.id);
   });
 
-  // router.post('/logout', (req, res, next)=>{
-  //   req.logout();
-  //   res.redirect("/login");
-  // })
+router.get('/logout', (req, res, next)=>{
+  req.logout();
+  res.redirect("/login");
+})
 
-  router.get('/auth/linkedin', passport.authenticate('linkedin', { state: true }));
+// LINKEDIN AUTH ROUTES
+router.get('/auth/linkedin', passport.authenticate('linkedin', { state: true }));
 
-  router.get('/auth/linkedin/callback', passport.authenticate('linkedin'), 
-  function(req, res) {
-    res.redirect('/profile/' + req.user.id);
-  });
+router.get('/auth/linkedin/callback', passport.authenticate('linkedin'), 
+function(req, res) {
+  res.redirect('/profile/' + req.user.id);
+});
 
 module.exports = router;
 

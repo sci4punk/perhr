@@ -131,7 +131,8 @@ input {
 #login-left {
   background-color: gray;
   height: 85vh;
-  color: white; }
+  color: white;
+  padding: 0 40px; }
 
 #signup-right {
   background-color: #cccccc;
