@@ -122,4 +122,21 @@ input {
   margin: -5px;
   font-size: 3rem; }
 
+#login-link {
+  padding: -20px; }
+
+.linkedin-upshift {
+  margin: -200px 0 0 0; }
+
+#login-left {
+  background-color: gray;
+  height: 85vh;
+  color: white; }
+
+#signup-right {
+  background-color: #cccccc;
+  height: 85vh;
+  color: black;
+  padding: 0 40px; }
+
 /*# sourceMappingURL=style.css.map */

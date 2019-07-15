@@ -1,22 +1,31 @@
-<div class="container inside-background">
-  <div class="container higlighted center">
-    <h2>Login</h2>
-    <a href="/auth/linkedin"><img src="./images/linkedin-btn.png" alt="Sign In with LinkedIn"></a>
-    <hr>
-    <form action="/login" method="POST">
-    <label>Email</label>
-    <input type="text" name="username">
-    <label>Password</label>
-    <input type="text" name="password">
-    <button>Login</button>
-    </form>
-  </div> 
+<div class="inside">
+  <div class="row">
+    <div class="col s12 m12 l6" id="login-left">
+      <h3>Login</h3>
+      <form action="/login" method="POST">
+      <div class="input-field"><label>Username</label>
+      <input type="text" name="username"></div>
+      <div class="input-field"><label>Password</label>
+      <input type="password" name="password"></div>
+      <button class="btn-large save-btn waves-effect waves-light green right">Login</button>
+      </form>
+    </div>
+    <div class="col s12 m12 l6" id="signup-right">
+      <h3>Sign Up</h3>
+      <form action="/signup" method="POST">
+      <div class="input-field"><label>Full Name</label>
+      <input type="text" name="theFullName"></div>
+      <div class="input-field"><label>Choose a Username</label>
+      <input type="text" name="theUsername"></div>
+      <div class="input-field"><label>Email Address</label>
+      <input type="text" name="phone"></div>
+      <div class="input-field"><label>Password</label>
+      <input type="password" name="thePassword"></div>
+      <button class="btn-large save-btn waves-effect waves-light green right">Sign Up</button>
+      </form>
+    </div>
+    <div class="col s12 m12 l12 linkedin-upshift center">
+      <a href="/auth/linkedin" id="linkedin-button" class="btn-large waves-effect waves-light blue"><i class="fab fa-linkedin-in"></i></a><a href="/auth/linkedin" id="linkedin-button" class="btn-large waves-effect waves-light blue"><span id="linkedin-text"> Or Sign In with LinkedIn</span></a>
+    </div>
+  </div>
 </div>
-
-
-
-{{!-- <br>
-<br>
-<br>
-<br>
-<a href="/auth/google">Log In With Google</a> --}}

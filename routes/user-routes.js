@@ -9,6 +9,8 @@ const passport = require('passport');
 
 const ensureLogin = require('connect-ensure-login');
 
+// SIGNUP ROUTES
+
 router.get('/signup', (req, res, next)=>{
     res.render('user-views/signup');
 })
@@ -149,7 +151,6 @@ router.get('/profile/:id', (req, res, next)=>{
 });
 
 // LOGIN ROUTES
-
 router.get('/login', (req, res, next)=>{
     res.render('user-views/login')
 })

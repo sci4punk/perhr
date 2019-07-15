@@ -151,3 +151,28 @@ input {
   margin: -5px;
   font-size: 3rem;
  }
+
+ #login-link {
+  padding: -20px;
+ }
+
+ .linkedin-upshift {
+  margin: -200px 0 0 0;
+ }
+
+ #login-left {
+  background-color: gray;
+  // border: 1px solid purple;
+  height: 85vh;
+  color: white;
+ }
+
+ #signup-right {
+  background-color: #cccccc;
+  // border: 1px solid green;
+  height: 85vh;
+  color: black;
+  padding: 0 40px;
+  // font-weight: bold;
+  // overflow: scroll;
+ }
