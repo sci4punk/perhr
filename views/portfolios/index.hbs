@@ -1,0 +1,26 @@
+
+<a href="/portfolios/new">Add New Portfolio</a>
+
+<h1>List of Portfolios</h1>
+
+
+{{#each allThePortfolios}}
+<a href="portfolios/{{this._id}}">
+<h2>{{this.siteName}}</h2>
+</a>
+<p>{{this.siteDomain}}</p>
+<p>{{this.siteIcon}}</p>
+
+<button class="btn">
+<a class="btn-link" href="/portfolios/{{this._id}}/edit">Edit This Portfolio</a>
+</button>
+
+<form action="/portfolios/{{this._id}}/delete" method="POST">
+<button class="btn">
+Delete This Portfolio
+</button>
+</form>
+
+<p>---------------------</p>
+
+{{/each}}

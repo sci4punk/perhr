@@ -22,8 +22,13 @@
       <input type="text" name="phone" value="{{user.phone}}"></div>      
       <div class="input-field">
         <select name="hideLocationEmailPhone">
+          {{#if user.hideLocationEmailPhone}}
           <option value="true">Hide Location, Email & Phone</option>
           <option value="false">Show Location, Email & Phone</option>
+          {{else}}
+          <option value="false">Show Location, Email & Phone</option>
+          <option value="true">Hide Location, Email & Phone</option>
+          {{/if}}
         </select>
       </div>
       <div><button class="btn-large save-btn waves-effect waves-light green right">Save</button></div>

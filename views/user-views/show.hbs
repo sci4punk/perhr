@@ -1,6 +1,7 @@
 <div class="inside">
   <div class="row">
     {{> card}}
+    {{#if user}}
     <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <a href="/profile/{{user._id}}/edit"><button class="btn-small blue darken-3">Edit Profile</button></a>
@@ -31,5 +32,7 @@
       </div>
       </form>
     </div>
+    {{else}}
+    {{/if}}
   </div>
 </div>

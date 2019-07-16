@@ -9,3 +9,4 @@ npm-debug.log
 
 # Dont show the seeds
 bin/seeds.js
+bin/portfolioSeeds.js

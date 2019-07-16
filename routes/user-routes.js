@@ -3,7 +3,6 @@ const router  = express.Router();
 const bcrypt  = require('bcryptjs');
 const User    = require('../models/User');
 // const Skill = require('../models/Skill');
-// const Portfolio = require('../models/Porfolio');
 
 const passport = require('passport');
 
@@ -91,6 +90,7 @@ router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (re
   })
 });
 
+// THE BELOW HAS OT BE CHANGED TO USE THE SKILLS MODEL, PUSH IDS ONTO USER, ADD NEW SKILLS ONTO BOTH
 router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
   User.findByIdAndUpdate(theID, {$push: {"skills": {name: req.body.name, icon: req.body.icon}}}, {upsert: true, new: true})
@@ -172,8 +172,8 @@ router.post('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res
   })
 });
 
-
-router.get('/profile/:id', (req, res, next)=>{
+                          // REMOVE BELOW TO EXPOSE IT PUBLICLY
+router.get('/profile/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
   User.findById(userId)

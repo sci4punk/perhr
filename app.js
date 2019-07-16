@@ -153,6 +153,7 @@ app.use('/', index);
 const userRoutes = require('./routes/user-routes');
 app.use('/', userRoutes);
 
-
+const portfolios = require('./routes/portfolio-routes');
+app.use('/', portfolios);
 
 module.exports = app;

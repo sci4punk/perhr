@@ -4,8 +4,8 @@ const Schema   = mongoose.Schema;
 
 const portfolioSchema = new Schema({
   siteName: { type: String, required: true },
-  siteUrl: { type: String, unique: true, required: true },
-  siteIcon: String
+  siteDomain: { type: String, unique: true, required: true },
+  siteIcon: { type: String, unique: true, required: true }
 }, {
   timestamps: {
     createdAt: "created_at",
