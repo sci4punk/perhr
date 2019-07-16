@@ -1,26 +1,34 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l4" id="right">
+    <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <a href="/profile/{{user._id}}/edit"><button class="btn-small blue darken-3">Edit Profile</button></a>
         <a href="/profile/{{user._id}}/portfolio"><button class="btn-small black">Portfolio</button></a>
         <a href="/profile/{{user._id}}/skills"><button class="btn-small black">Skills</button></a>
+        <a href="/profile/{{user._id}}/rate"><button class="btn-small black">$ Rate</button></a>
       </div>
       <h3>Profile</h3>
       <form disabled>
       <div class="input-field"><label>Name</label>
-      <input type="text" name="fullName" value="{{user.fullName}}" readonly></div>
+      <input type="text" name="fullName" value="{{user.fullName}}" disabled></div>
       <div class="input-field"><label>Title</label>
-      <input type="text" name="title" value="{{user.title}}" readonly></div>
+      <input type="text" name="title" value="{{user.title}}" disabled></div>
       <div class="input-field"><label>Where</label>
-      <input type="text" name="location" value="{{user.location}}" readonly></div>
+      <input type="text" name="location" value="{{user.location}}" disabled></div>
       <div class="input-field"><label>Email</label>
-      <input type="text" name="email" value="{{user.email}}" readonly></div>
+      <input type="text" name="email" value="{{user.email}}" disabled></div>
       <div class="input-field"><label>Phone</label>
-      <input type="text" name="phone" value="{{user.phone}}" readonly></div>
-      <div class="input-field"><label>Per Hour Rate ($)</label>
-      <input type="number" name="rate" value="{{user.rate}}" readonly></div>
+      <input type="text" name="phone" value="{{user.phone}}" disabled></div>
+      <div class="input-field">
+        <select name="hideLocationEmailPhone" disabled>
+          {{#if user.hideLocationEmailPhone}}
+          <option value="true" readonly>Hide Location, Email & Phone</option>
+          {{else}}
+          <option value="false" readonly>Show Location, Email & Phone</option>
+          {{/if}}
+        </select>
+      </div>
       </form>
     </div>
   </div>

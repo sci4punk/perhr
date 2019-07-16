@@ -1,11 +1,12 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l4" id="right">
+    <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <a href="/profile/{{user._id}}"><button class="btn-small black">Profile</button></a>
         <a href="/profile/{{user._id}}/portfolio/edit"><button class="btn-small blue darken-3">Edit Portfolio</button></a> 
         <a href="/profile/{{user._id}}/skills"><button class="btn-small black">Skills</button></a>
+        <a href="/profile/{{user._id}}/rate"><button class="btn-small black">$ Rate</button></a>
       </div>
       <h3>Portfolio</h3>
       {{!-- <form disabled>

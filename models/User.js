@@ -13,7 +13,8 @@ const userSchema = new Schema ({
     phone: String,
     rate: Number,
     portfolio: Array,
-    skills: Array
+    skills: Array,
+    hideLocationEmailPhone: {type: Boolean, default: false}
 }, {
     timestamps: {
       createdAt: "created_at",

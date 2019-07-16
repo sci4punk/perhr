@@ -1,0 +1,19 @@
+<div class="inside">
+  <div class="row">
+    {{> card}}
+    <div class="col s12 m12 l5" id="right">
+      <div class="mini-nav center">
+        <button class="btn-small black" disabled>Profile</button> 
+        <button class="btn-small black" disabled>Portfolio</button>
+        <button class="btn-small black" disabled>$ Skills</button>
+        <a href="/profile/{{user._id}}/rate"><button class="btn-small red darken-3">Cancel</button></a>
+      </div>
+      <h4>Edit Rate</h4>
+      <form action="/profile/{{user._id}}/rate/edit" method="POST">
+      <div class="input-field"><label>Per Hour Rate ($)</label>
+      <input type="number" name="rate" value="{{user.rate}}"></div>
+      <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

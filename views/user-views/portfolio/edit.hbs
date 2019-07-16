@@ -1,13 +1,14 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l4" id="right">
+    <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <a href="/profile/{{user._id}}/portfolio"><button class="btn-small red darken-3">Cancel</button></a>
         <button class="btn-small black" disabled>Skills</button>
+        <button class="btn-small black" disabled>$ Rate</button>
       </div>
-      <h3>Edit Portfolio</h3>
+      <h4>Edit Portfolio</h4>
       {{!-- <form action="/profile/{{user._id}}/edit" method="POST">
       <div class="input-field"><label>Name</label>
       <input type="text" name="fullName" value="{{user.fullName}}"></div>

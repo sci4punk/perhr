@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('ready to go');
-
-}, false);
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+});
 
 
 function copyToClipboard() {
@@ -10,13 +10,3 @@ function copyToClipboard() {
   copyText.select();
   document.execCommand("copy");
 }
-
-
-function valueChanged()
-{
-    if($('check-email').is(":checked"))   
-        $(".email").hide();
-    else
-        $(".email");
-}
-</script>

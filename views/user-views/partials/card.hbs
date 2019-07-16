@@ -1,4 +1,4 @@
-<div class="col s12 m12 l8 center" id="left">
+<div class="col s12 m12 l7 center" id="left">
   <p class="grey-text"><small>Last updated: {{user.updated_at}}</small></p>
   {{#if user.fullName}}
   <h1>{{user.fullName}}</h1>
@@ -18,17 +18,20 @@
   <p class="proper-font brand-logo green-text">${{user.rate}} per<span id="dot">.</span>hr</p>
   {{/if}}
 
-  {{#unless user.location.hide}}
+  {{#if user.hideLocationEmailPhone}}
+  {{else}}
   <h5>{{user.location}}</h5>
-  {{/unless}}
+  {{/if}}
 
-  {{#unless user.email.hide}}
+  {{#if user.hideLocationEmailPhone}}
+  {{else}}
   <h5>{{user.email}}</h5>
-  {{/unless}}
+  {{/if}}
 
-  {{#unless user.phone.hide}}
+  {{#if user.hideLocationEmailPhone}}
+  {{else}}
   <h5>{{user.phone}}</h5>
-  {{/unless}}
+  {{/if}}
 
   {{#if user.portfolio}}
   <h3>Portfolios</h3>

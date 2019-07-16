@@ -1,13 +1,14 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l4" id="right" style="overflow:auto">
+    <div class="col s12 m12 l5" id="right" style="overflow:auto">
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <button class="btn-small black" disabled>Portfolio</button>
         <a href="/profile/{{user._id}}/skills"><button class="btn-small red darken-3">Cancel</button></a>
+        <button class="btn-small black" disabled>$ Rate</button>
       </div>
-      <h3>Edit Skills</h3>
+      <h4>Edit Skills</h4>
       <!-- TESTING DISPLAY OF SKILLS CHIPS -->
       <form action="/profile/{{user._id}}/skills/edit" method="POST">
       {{#if user.skills}}
