@@ -20,8 +20,8 @@
 
       {{!-- THIS WORKS FOR SKILLS DIRECTLY ON THE USER PROFILE --}}
       
-      {{#each skills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{icon}}" alt="{{name}}">{{name}} <i class="close material-icons">close</i></div>
+      {{#each user.skills}}
+      <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}} <i class="close material-icons">close</i></div>
       {{/each}}
       
 

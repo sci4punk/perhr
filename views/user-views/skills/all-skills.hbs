@@ -1,7 +1,7 @@
 <div class="inside">
   <div class="row">
     {{> card}}
-    <div class="col s12 m12 l5" id="right" style="overflow:auto">
+    <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <button class="btn-small black" disabled>Portfolio</button>
@@ -13,35 +13,17 @@
 
       <form action="/profile/{{user._id}}/skills/edit" method="POST">
 
-      {{#if user.skills}}
+
       {{#each user.skills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{../skills.name}}" alt="{{../skills.name}}">{{../skills.name}} <i class="close material-icons">close</i></div>
+      <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}} <i class="close material-icons">close</i></div>
       {{/each}}
-      {{/if}}
-
-
-      {{!-- THIS WORKS FOR SKILLS DIRECTLY ON THE USER PROFILE --}}
+      <br>
       <select name="skills">
-        {{!-- <option value=""></option> --}}
         {{#each allTheSkills}}
         <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
         </option>
       </select>
-
-
-
-      {{!-- THIS ACTUALLY WORKS TO DISPLAY THE CHIPS --}}
-      {{!-- {{#each allTheSkills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}} <i class="add tiny material-icons">add</i></div>
-      {{/each}} --}}
-      
-
-
-      {{!-- <div class="input-field"><label>Skill Name</label>
-      <input type="text" name="name" required></div>
-      <div class="input-field"><label>Github Image URL</label>
-      <input type="text" name="icon" required></div> --}}
       <button class="btn-large save-btn waves-effect waves-light green right">Add Skill</button>
       </form>
     </div>

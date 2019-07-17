@@ -9,11 +9,11 @@
         <a href="/profile/{{user._id}}/rate"><button class="btn-small black">$ Rate</button></a>
       </div>
       <h3>Skills</h3>
-      {{#if user.skills}}
+      
       {{#each user.skills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{icon}}" alt="{{name}}">{{name}}</div>
+      <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}}</div>
       {{/each}}
-      {{/if}}
+      
     </div>
   </div>
 </div>

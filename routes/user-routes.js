@@ -46,7 +46,7 @@ console.log(`This is the username: ${theUsername}`);
 // RATE ROUTES
 router.get('/profile/:id/rate/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/rate/edit', {user: oneSingleUser})
   })
@@ -69,7 +69,7 @@ router.post('/profile/:id/rate/edit', ensureLogin.ensureLoggedIn('/login'), (req
 router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/rate/show', {user: oneSingleUser})
   })
@@ -94,18 +94,17 @@ router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res,
 
 router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
    
     Skill.find()
     .then((allTheSkills)=>{
-      console.log(allTheSkills);
       res.render('user-views/skills/all-skills', {user: oneSingleUser, allTheSkills: allTheSkills})
+    })
     .catch((err)=>{
       next(err);
     })
 
-  })
   .catch((err)=>{
     next(err);
   })
@@ -130,7 +129,7 @@ router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (re
 router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
   console.log(req.body.skills);
-  User.findByIdAndUpdate(theID, {$push: {"skills": {skills: req.body.skills}}}, {upsert: true, new: true})
+  User.findByIdAndUpdate(theID, {$push: {skills: req.body.skills}}, {upsert: true, new: true})
   .then(()=>{
 
     res.redirect(`/profile/${theID}/skills/edit`);
@@ -145,7 +144,7 @@ router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (r
 router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/skills/show', {user: oneSingleUser})
   })
@@ -158,7 +157,7 @@ router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, re
 
 router.get('/profile/:id/portfolio/add-new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/portfolio/add-new', {user: oneSingleUser})
   })
@@ -170,7 +169,7 @@ router.get('/profile/:id/portfolio/add-new', ensureLogin.ensureLoggedIn('/login'
 
 router.get('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/portfolio/edit', {user: oneSingleUser})
   })
@@ -193,7 +192,7 @@ router.post('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'),
 router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/portfolio/show', {user: oneSingleUser})
   })
@@ -205,7 +204,7 @@ router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req,
 // PROFILE ROUTES
 router.get('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/edit', {user: oneSingleUser})
   })
@@ -229,7 +228,7 @@ router.post('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res
 router.get('/profile/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId)
+  User.findById(userId).populate('skills')
   .then((oneSingleUser)=>{
     res.render('user-views/show', {user: oneSingleUser})
   })
