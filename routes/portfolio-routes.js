@@ -54,11 +54,6 @@ portfolioRouter.get('/portfolios/', (req, res, next) => {
   
 });
 
-
-portfolioRouter.get('/portfolios/new-folio', (req, res, next)=>{
-  res.render('portfolios/new');
-});
-
 portfolioRouter.post('/portfolios', (req, res, next)=>{
   const {siteName, siteDomain, siteIcon} = req.body;
   let newPortfolio = {siteName: siteName, siteDomain: siteDomain, siteIcon: siteIcon}

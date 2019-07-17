@@ -9,7 +9,22 @@
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
       <h4>Edit Portfolio</h4>
-      {{!-- <form action="/profile/{{user._id}}/edit" method="POST">
+      <a href="/profile/{{user._id}}/portfolio/add-new"><button type="button" class="btn-small green">Add New Portfolio</button></a>
+            
+
+
+
+
+      {{!-- <ul id="folio-list"></ul> --}}
+
+      {{!-- id="new-folio-button" THIS THING IS USED TO ACTUALLY POST TO THE API - PUT IT ON THE NEXT PAGE --}}
+
+      {{!-- {{#each allThePortfolios}}
+        <a href="portfolios/{{../portfolio._id}}"><img src="{{../portfolio.siteIcon}}" alt="{{../portfolio.siteName}}" id="portfolios-btn"></a>
+        <p>{{../portfolio.siteName}}</p>
+        <p>{{../portfolio.siteDomain}}</p>
+      {{/each}} --}}
+      {{!-- <form action="/profile/{{user._id}}/edit" method="POST"></form>
       <div class="input-field"><label>Name</label>
       <input type="text" name="fullName" value="{{user.fullName}}"></div>
       <div class="input-field"><label>Title</label>

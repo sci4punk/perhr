@@ -67,6 +67,7 @@ app.locals.title = 'per.hr - set your hourly rate for project, contract jobs, fr
 
 app.use(session({
   secret: "shhhhh-super-secret",
+  cookie: { maxAge: 86400000 },
   resave: true,
   saveUninitialized: true
 }));
@@ -119,7 +120,7 @@ passport.use(new LinkedInStrategy({
       } else {
           // console.log(profile)
           const newUser = new User();
-          newUser.username = email;
+          // newUser.username = email;
           newUser.fullName = profile.displayName;
           newUser.email = email;
           newUser.linkedin = true;

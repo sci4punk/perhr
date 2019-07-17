@@ -9,28 +9,19 @@
         <a href="/profile/{{user._id}}/rate"><button class="btn-small black">$ Rate</button></a>
       </div>
       <h3>Portfolio</h3>
-      {{!-- {{#if user.portfolio}} --}}
+      {{#if user.portfolio}}
       {{#each user.portfolio}}
       <div class="row">
         <div class="col s12 m7">
           <div class="card">
-          <div class="card-image">{{user.portfolio.siteIcon}}</div>
+          <div class="card-image">{{user.portfolio.url}}</div>
           <div class="card-title">{{user.portfolio.siteName}}</div>
           <div class="card-action"><a href="{{user.portfolio.siteDomain}}">{{user.portfolio.siteDomain}}</a></div>
           </div>
         </div>
       </div>
-      {{!-- <a href="{{user.portfolio.0.URL}}">{{user.portfolio.0.URL}}</a> --}}
       {{/each}}
-      {{!-- {{/if}} --}}
-      {{!-- <form disabled>
-      <div class="input-field"><label>Site</label>
-      <input type="text" name="siteName" value="{{user.portfolio.siteName}}" readonly></div>
-      <div class="input-field"><label>URL</label>
-      <input type="text" name="siteUrl" value="{{user.portfolio.siteUrl}}" readonly></div>
-      <div class="input-field"><label>Icon</label>
-      <input type="text" name="siteIcon" value="{{user.portfolio.siteIcon}}" readonly></div>
-      </form> --}}
+      {{/if}}
     </div>
   </div>
 </div>

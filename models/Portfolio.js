@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const portfolioSchema = new Schema({
+  // userId: { type: String, required: true, default: admin},
   siteName: { type: String, required: true },
   siteDomain: { type: String, unique: true, required: true },
   siteIcon: { type: String, unique: true, required: true }

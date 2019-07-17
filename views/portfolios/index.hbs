@@ -1,15 +1,14 @@
 
-<a href="/portfolios/new">Add New Portfolio</a>
+<a href="/portfolios/new-folio">Add New Portfolio</a>
 
 <h1>List of Portfolios</h1>
 
 
 {{#each allThePortfolios}}
 <a href="portfolios/{{this._id}}">
-<h2>{{this.siteName}}</h2>
-</a>
+<img src="{{this.siteIcon}}" alt="{{this.siteName}}" id="portfolios-btn"></a>
+<p>{{this.siteName}}</p>
 <p>{{this.siteDomain}}</p>
-<p>{{this.siteIcon}}</p>
 
 <button class="btn">
 <a class="btn-link" href="/portfolios/{{this._id}}/edit">Edit This Portfolio</a>

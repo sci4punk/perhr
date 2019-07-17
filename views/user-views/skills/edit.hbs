@@ -9,7 +9,6 @@
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
       <h4>Edit Skills</h4>
-      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
       <form action="/profile/{{user._id}}/skills/edit" method="POST">
       {{#if user.skills}}
       {{#each user.skills}}
@@ -22,7 +21,6 @@
       <input type="text" name="icon" required></div>
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
       </form>
-      <!-- TESTING DISPLAY OF SKILLS CHIPS -->
     </div>
   </div>
 </div>

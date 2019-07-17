@@ -135,7 +135,7 @@ input {
   margin: -200px 0 0 0; }
 
 #login-left {
-  background-color: gray;
+  background-color: #708090;
   height: 85vh;
   color: white;
   padding: 0 40px; }
@@ -157,6 +157,18 @@ input {
   margin: 2px; }
 
 .folio-list {
+  display: flex;
+  flex-direction: nowrap;
   background-color: black; }
+
+.portfolio-icons {
+  vertical-align: middle;
+  width: 26px;
+  height: 26px;
+  padding-bottom: 3px; }
+
+.portfolio-buttons {
+  float: left;
+  margin: 5px; }
 
 /*# sourceMappingURL=style.css.map */

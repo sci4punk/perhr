@@ -115,6 +115,19 @@ router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, re
 });
 
 // PORTFOLIO ROUTES
+
+router.get('/profile/:id/portfolio/add-new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
+  let userId = req.params.id;
+  User.findById(userId)
+  .then((oneSingleUser)=>{
+    res.render('user-views/portfolio/add-new', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+
 router.get('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
