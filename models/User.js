@@ -14,6 +14,7 @@ const userSchema = new Schema ({
     rate: Number,
     portfolio: Array,
     skills: Array,
+    // skills: [{type: Schema.Types.ObjectId, ref: 'Skill'}],
     hideLocationEmailPhone: {type: Boolean, default: false}
 }, {
     timestamps: {

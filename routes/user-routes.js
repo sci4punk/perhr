@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const bcrypt  = require('bcryptjs');
 const User    = require('../models/User');
-// const Skill = require('../models/Skill');
+const Skill = require('../models/Skill');
 
 const passport = require('passport');
 
@@ -78,29 +78,69 @@ router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res,
   })
 });
 
-// SKILLS ROUTES
+// SKILLS ROUTES - THIS WORKS FOR SKILLS DIRECTLY ON THE USER MODEL
+// router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
+//   let userId = req.params.id;
+//   User.findById(userId)
+//   .then((oneSingleUser)=>{
+//     res.render('user-views/skills/edit', {user: oneSingleUser})
+//   })
+//   .catch((err)=>{
+//     next(err);
+//   })
+// });
+
+// TESTING GETTING SKILLS FROM MASTER SKILLS MODEL WITH ID ON USER MODEL SKILLS ARRAY
+
 router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
   User.findById(userId)
   .then((oneSingleUser)=>{
-    res.render('user-views/skills/edit', {user: oneSingleUser})
+   
+    Skill.find()
+    .then((allTheSkills)=>{
+      console.log(allTheSkills);
+      res.render('user-views/skills/all-skills', {user: oneSingleUser, allTheSkills: allTheSkills})
+    .catch((err)=>{
+      next(err);
+    })
+
+  })
+  .catch((err)=>{
+    next(err);
+  })
+
+})
+});
+
+
+
+// THE BELOW WOKRS, BUT HAS TO BE CHANGED TO USE THE SKILLS MODEL, PUSH IDS ONTO USER, ADD NEW SKILLS ONTO BOTH
+// router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
+//   let theID = req.params.id
+//   User.findByIdAndUpdate(theID, {$push: {"skills": {name: req.body.name, icon: req.body.icon}}}, {upsert: true, new: true})
+//   .then(()=>{
+//     res.redirect(`/profile/${theID}/skills`);
+//   })
+//   .catch((err)=>{
+//     next(err);
+//   })
+// });
+
+router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
+  let theID = req.params.id
+  console.log(req.body.skills);
+  User.findByIdAndUpdate(theID, {$push: {"skills": {skills: req.body.skills}}}, {upsert: true, new: true})
+  .then(()=>{
+
+    res.redirect(`/profile/${theID}/skills/edit`);
   })
   .catch((err)=>{
     next(err);
   })
 });
 
-// THE BELOW HAS OT BE CHANGED TO USE THE SKILLS MODEL, PUSH IDS ONTO USER, ADD NEW SKILLS ONTO BOTH
-router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
-  let theID = req.params.id
-  User.findByIdAndUpdate(theID, {$push: {"skills": {name: req.body.name, icon: req.body.icon}}}, {upsert: true, new: true})
-  .then(()=>{
-    res.redirect(`/profile/${theID}/skills`);
-  })
-  .catch((err)=>{
-    next(err);
-  })
-});
+// WORK ON THE ABOVE
 
 router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
@@ -223,5 +263,3 @@ function(req, res) {
 });
 
 module.exports = router;
-
-// ensureLogin.ensureLoggedIn('/login'),
