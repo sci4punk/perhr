@@ -23,7 +23,7 @@ const flash = require("connect-flash");
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 
 mongoose
-  .connect('mongodb://localhost/perhr', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     // console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
