@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getAllTheFoliosAndPutThemOnThePage(){
     let list = document.getElementById('folio-list');
-    axios.get('http://localhost:3000/portfolios/new-folio/api')
+    axios.get('/portfolios/new-folio/api')
     .then((response)=>{
       let arrayOfStuff = response.data;
       list.innerHTML = "";
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let siteName = document.getElementById('siteName');
     let siteDomain = document.getElementById('siteDomain');
     let siteIcon = document.getElementById('siteIcon');
-    axios.post('http://localhost:3000/portfolios/new-folio/api', {siteName: siteName.value, siteDomain: siteDomain.value, siteIcon: siteIcon.value})
+    axios.post('/portfolios/new-folio/api', {siteName: siteName.value, siteDomain: siteDomain.value, siteIcon: siteIcon.value})
     .then((res)=>{
         getAllTheFoliosAndPutThemOnThePage();
     })
