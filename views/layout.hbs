@@ -15,7 +15,7 @@
 <div class="navbar-fixed">
   <nav class="black" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo green-text">per<span id="dot">.</span>hr</a>
-    {{#if user}}
+    {{#if user.owner}}
     <ul class="right hide-on-med-and-down">
       <li><input class="white-text" type="text" value="per.hr/{{user._id}}" id="clipboard-btn" onclick="copyToClipboard()" size="31" readonly></li>
     </ul>
@@ -31,7 +31,8 @@
 
 <div class="footer-copyright black center">
   <div class="container white-text">
-    Made with <span id="heart">&#10084;</span> in Miami @ <a href="http://www.ironhack.com" target="_blank">Ironhack</a> by Steve Englander | <a href="https://www.linkedin.com/in/recsci" target="_blank">LinkedIn</a> | <a href="https://github.com/confidenti-al" target="_blank">Github</a>{{#if user}}<a href="/logout"><span class="right" id="logout">Logout</span></a>{{/if}}
+    Made with <span id="heart">&#10084;</span> in Miami @ <a href="http://www.ironhack.com" target="_blank">Ironhack</a> by Steve Englander | <a href="https://www.linkedin.com/in/recsci" target="_blank">LinkedIn</a> | <a href="https://github.com/confidenti-al" target="_blank">Github</a>
+    {{#if user.owner}}<a href="/logout"><span class="right" id="logout">Logout</span></a>{{/if}}
   </div>
 </div>
 
