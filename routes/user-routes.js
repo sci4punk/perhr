@@ -275,6 +275,10 @@ router.get('/profile/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next
   })
 });
 
+
+
+
+
 // LOGIN LOGOUT ROUTES
 router.get('/login', (req, res, next)=>{
     res.render('user-views/login')
@@ -298,5 +302,19 @@ router.get('/auth/linkedin/callback', passport.authenticate('linkedin'),
 function(req, res) {
   res.redirect('/profile/' + req.user.id);
 });
+
+
+router.get('/:id', (req, res, next)=>{
+  
+  let userId = req.params.id;
+  User.findById(userId).populate('skills').populate('portfolio')
+  .then((oneSingleUser)=>{ 
+    res.render('show', {user: oneSingleUser})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
 
 module.exports = router;
