@@ -1,6 +1,7 @@
 <div class="inside">
   <div class="row">
     {{> card}}
+    {{#if user.owner}}
     <div class="col s12 m12 l5" id="right" style="overflow:auto">
       <div class="mini-nav center">
         <a href="/profile/{{user._id}}"><button class="btn-small grey darken-3">Done</button></a>
@@ -34,5 +35,6 @@
       <div><button class="btn-large save-btn waves-effect waves-light green right">Save</button></div>
       </form>
     </div>
+    {{/if}}
   </div>
 </div>
