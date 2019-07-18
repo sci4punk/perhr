@@ -11,3 +11,4 @@ npm-debug.log
 bin/seeds.js
 bin/portfolioSeeds.js
 bin/seedsSkillsHeroku.js
+bin/seedsPortfolioHeroku.js

@@ -89,7 +89,9 @@ router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (re
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
-   
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     Skill.find()
     .then((allTheSkills)=>{
       res.render('user-views/skills/all-skills', {user: oneSingleUser, allTheSkills: allTheSkills})
