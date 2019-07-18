@@ -5,32 +5,16 @@
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <button class="btn-small black" disabled>Portfolio</button>
-        <a href="/profile/{{user._id}}/skills"><button class="btn-small red darken-3">Done</button></a>
+        <a href="/profile/{{user._id}}/skills"><button class="btn-small grey darken-3">Done</button></a>
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
       <h4>Edit Skills</h4>
       <form action="/profile/{{user._id}}/skills/edit" method="POST">
 
-      {{!-- {{#if user.skills}}
-      {{#each user.skills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{icon}}" alt="{{name}}">{{name}} <i class="close material-icons">close</i></div>
-      {{/each}}
-      {{/if}} --}}
-
-
-      {{!-- THIS WORKS FOR SKILLS DIRECTLY ON THE USER PROFILE --}}
-      
       {{#each user.skills}}
       <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}} <i class="close material-icons">close</i></div>
       {{/each}}
       
-
-
-
-       {{!-- <div class="input-field"><label>Skill Name</label>
-      <input type="text" name="name" required></div>
-      <div class="input-field"><label>Github Image URL</label>
-      <input type="text" name="icon" required></div> --}}
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
       </form>
     </div>

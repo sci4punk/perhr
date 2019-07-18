@@ -10,8 +10,6 @@
 
 
 
-
-
   // $('.chips').on('chip.add', function(e, chip) {
   //   console.log(chip.tag.slice(" "), "chip")
   //   var data = {

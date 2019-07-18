@@ -4,37 +4,37 @@ const portfolioRouter  = express.Router();
 const Portfolio = require('../models/Portfolio');
 
 // adding API here
-portfolioRouter.get('/portfolios/new-folio/api', (req, res, next)=>{
-  Portfolio.find()
-  .then((listOfFolios)=>{
-    console.log('API ACCESSED!')
-    res.json(listOfFolios)
-  })
-  .catch((err)=>{
-      next(err);
-  })
-})
+// portfolioRouter.get('/portfolios/new-folio/api', (req, res, next)=>{
+//   Portfolio.find()
+//   .then((listOfFolios)=>{
+//     console.log('API ACCESSED!')
+//     res.json(listOfFolios)
+//   })
+//   .catch((err)=>{
+//       next(err);
+//   })
+// })
   
-portfolioRouter.post('/portfolios/new-folio/api', (req, res, next)=>{
-  let siteName = req.body.siteName;
-  let siteDomain = req.body.siteDomain;
-  let siteIcon = req.body.siteIcon;
-  console.log(siteName, siteDomain, siteIcon)
+// portfolioRouter.post('/portfolios/new-folio/api', (req, res, next)=>{
+//   let siteName = req.body.siteName;
+//   let siteDomain = req.body.siteDomain;
+//   let siteIcon = req.body.siteIcon;
+//   console.log(siteName, siteDomain, siteIcon)
 
-  Portfolio.create({
-    siteName: siteName,
-    siteDomain: siteDomain,
-    siteIcon: siteIcon
-  })
-  .then((response)=>{
-    console.log(response);
-      res.json({message: 'Successfully Created Portfolio'});
-  })
-  .catch((err)=>{
-    console.log(err);
-      res.json(err);
-  })
-})
+//   Portfolio.create({
+//     siteName: siteName,
+//     siteDomain: siteDomain,
+//     siteIcon: siteIcon
+//   })
+//   .then((response)=>{
+//     console.log(response);
+//       res.json({message: 'Successfully Created Portfolio'});
+//   })
+//   .catch((err)=>{
+//     console.log(err);
+//       res.json(err);
+//   })
+// })
 // ending API here
 
 portfolioRouter.get('/portfolios/new-folio', (req, res, next)=>{

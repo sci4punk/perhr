@@ -78,19 +78,7 @@ router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res,
   })
 });
 
-// SKILLS ROUTES - THIS WORKS FOR SKILLS DIRECTLY ON THE USER MODEL
-// router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
-//   let userId = req.params.id;
-//   User.findById(userId)
-//   .then((oneSingleUser)=>{
-//     res.render('user-views/skills/edit', {user: oneSingleUser})
-//   })
-//   .catch((err)=>{
-//     next(err);
-//   })
-// });
-
-// TESTING GETTING SKILLS FROM MASTER SKILLS MODEL WITH ID ON USER MODEL SKILLS ARRAY
+// GETS SKILLS FROM MASTER SKILLS MODEL WITH ID ON USER MODEL SKILLS ARRAY
 
 router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
@@ -112,23 +100,9 @@ router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (re
 })
 });
 
-
-
-// THE BELOW WOKRS, BUT HAS TO BE CHANGED TO USE THE SKILLS MODEL, PUSH IDS ONTO USER, ADD NEW SKILLS ONTO BOTH
-// router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
-//   let theID = req.params.id
-//   User.findByIdAndUpdate(theID, {$push: {"skills": {name: req.body.name, icon: req.body.icon}}}, {upsert: true, new: true})
-//   .then(()=>{
-//     res.redirect(`/profile/${theID}/skills`);
-//   })
-//   .catch((err)=>{
-//     next(err);
-//   })
-// });
-
 router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
-  console.log(req.body.skills);
+
   User.findByIdAndUpdate(theID, {$push: {skills: req.body.skills}}, {upsert: true, new: true})
   .then(()=>{
 
@@ -139,7 +113,30 @@ router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (r
   })
 });
 
-// WORK ON THE ABOVE
+// TESTING DELETE SKILL USING x CLOSE
+
+router.post('/profile/:id/skills/delete', (req, res, next)=>{
+  let userId = req.params.id;
+
+  User.findById(userId)
+  .then(()=>{
+    
+    User.findByIdAndUpdate(userId, {$pull: {skills: req.body.skills}}, {upsert: true, new: true})
+    .then(()=>{
+      res.redirect(`/profile/${userId}/skills/edit`);
+    })
+
+    .catch((err)=>{
+      next(err);
+    })
+
+  .catch((err)=>{
+    next(err);
+  })
+})
+});
+
+
 
 router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   

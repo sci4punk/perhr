@@ -5,27 +5,43 @@
       <div class="mini-nav center">
         <button class="btn-small black" disabled>Profile</button> 
         <button class="btn-small black" disabled>Portfolio</button>
-        <a href="/profile/{{user._id}}/skills"><button class="btn-small red darken-3">Done</button></a>
+        <a href="/profile/{{user._id}}/skills"><button class="btn-small grey darken-3">Done</button></a>
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
       <h4>Edit Skills</h4>
-
-
-      <form action="/profile/{{user._id}}/skills/edit" method="POST">
-
-
+      {{!-- <form action="/profile/{{user._id}}/skills/delete" method="POST">
       {{#each user.skills}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{this.icon}}" alt="{{this.name}}">{{this.name}} <i class="close material-icons">close</i></div>
+      <button class="chip black white-text" id="chip-edit" value="{{this._id}}">
+        <img src="{{this.icon}}" alt="{{this.name}}">{{this.name}}
+        <i class="close material-icons">close</i>
+      </button>
       {{/each}}
-      <br>
+      </form> --}}
+
+      
+
+      <h5>Add a Skill</h5>
+      <form action="/profile/{{user._id}}/skills/edit" method="POST">
       <select name="skills">
         {{#each allTheSkills}}
         <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
         </option>
       </select>
-      <button class="btn-large save-btn waves-effect waves-light green right">Add Skill</button>
+      <button class="btn-large save-btn waves-effect waves-light green right">Add</button>
       </form>
+      <br><br><br><br><br>
+      <h5>Remove a Skill</h5>
+      <form action="/profile/{{user._id}}/skills/delete" method="POST">
+      <select name="skills">
+        {{#each user.skills}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+        </option>
+      </select>
+      <button class="btn-large save-btn waves-effect waves-light red darken-3 right">Remove</button>
+      </form>
+
     </div>
   </div>
 </div>
