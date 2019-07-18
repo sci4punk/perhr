@@ -6,8 +6,8 @@ body {
 a {
   color: #00B7FF; }
 
-h1 {
-  margin: 20px; }
+#name-title {
+  margin-top: -20px; }
 
 h4 {
   margin-bottom: 25px; }

@@ -5,7 +5,7 @@
 {{/if}}
   <p class="grey-text"><small>Last updated: {{user.updated_at}}</small></p>
   {{#if user.fullName}}
-  <h1>{{user.fullName}}</h1>
+  <div id="name-title"><h2>{{user.fullName}}</h2></div>
   {{/if}}
 
   {{#if user.title}}
@@ -24,21 +24,21 @@
 
   {{#if user.hideLocationEmailPhone}}
   {{else}}
-  <h5>{{user.location}}</h5>
+  <h6>{{user.location}}</h6>
   {{/if}}
 
   {{#if user.hideLocationEmailPhone}}
   {{else}}
-  <h5>{{user.email}}</h5>
+  <h6>{{user.email}}</h6>
   {{/if}}
 
   {{#if user.hideLocationEmailPhone}}
   {{else}}
-  <h5>{{user.phone}}</h5>
+  <h6>{{user.phone}}</h6>
   {{/if}}
 
   {{#if user.portfolio}}
-  <h5>Portfolios</h5>
+  <h6><i>Portfolios</i></h6>
   {{#each user.portfolio}}
   <div class="chip black white-text" id="chip"><img src="{{siteIcon}}" alt="{{siteName}}">{{siteName}}</div>
   {{/each}}
