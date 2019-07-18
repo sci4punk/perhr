@@ -162,7 +162,9 @@ router.get('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), 
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
-   
+    if(oneSingleUser._id.toString()===req.user._id.toString()){  // checking edit routes!!!
+      oneSingleUser.owner = true;
+    } 
     Portfolio.find()
     .then((allThePortfolios)=>{
       res.render('user-views/portfolio/addremove', {user: oneSingleUser, allThePortfolios: allThePortfolios})
