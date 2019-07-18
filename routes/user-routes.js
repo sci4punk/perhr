@@ -3,6 +3,7 @@ const router  = express.Router();
 const bcrypt  = require('bcryptjs');
 const User    = require('../models/User');
 const Skill = require('../models/Skill');
+const Portfolio = require('../models/Portfolio');
 
 const passport = require('passport');
 
@@ -25,8 +26,6 @@ router.post('/signup', (req, res, next)=>{
     const salt = bcrypt.genSaltSync(12);
     const hashedPassWord =  bcrypt.hashSync(thePassword, salt);
 
-console.log(`This is the username: ${theUsername}`);
-
     User.create({
         username: theUsername,
         password: hashedPassWord,
@@ -46,7 +45,7 @@ console.log(`This is the username: ${theUsername}`);
 // RATE ROUTES
 router.get('/profile/:id/rate/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/rate/edit', {user: oneSingleUser})
   })
@@ -69,7 +68,7 @@ router.post('/profile/:id/rate/edit', ensureLogin.ensureLoggedIn('/login'), (req
 router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/rate/show', {user: oneSingleUser})
   })
@@ -78,11 +77,11 @@ router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res,
   })
 });
 
-// GETS SKILLS FROM MASTER SKILLS MODEL WITH ID ON USER MODEL SKILLS ARRAY
+// SKILLS ROUTES
 
 router.get('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
    
     Skill.find()
@@ -113,7 +112,7 @@ router.post('/profile/:id/skills/edit', ensureLogin.ensureLoggedIn('/login'), (r
   })
 });
 
-// TESTING DELETE SKILL USING x CLOSE
+// DELETE SKILLS ROUTE
 
 router.post('/profile/:id/skills/delete', (req, res, next)=>{
   let userId = req.params.id;
@@ -136,12 +135,10 @@ router.post('/profile/:id/skills/delete', (req, res, next)=>{
 })
 });
 
-
-
 router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/skills/show', {user: oneSingleUser})
   })
@@ -152,44 +149,66 @@ router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, re
 
 // PORTFOLIO ROUTES
 
-router.get('/profile/:id/portfolio/add-new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
-  let userId = req.params.id;
-  User.findById(userId).populate('skills')
-  .then((oneSingleUser)=>{
-    res.render('user-views/portfolio/add-new', {user: oneSingleUser})
-  })
-  .catch((err)=>{
-    next(err);
-  })
-});
-
-
 router.get('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
-    res.render('user-views/portfolio/edit', {user: oneSingleUser})
-  })
+   
+    Portfolio.find()
+    .then((allThePortfolios)=>{
+      res.render('user-views/portfolio/addremove', {user: oneSingleUser, allThePortfolios: allThePortfolios})
+    })
+    .catch((err)=>{
+      next(err);
+    })
+
   .catch((err)=>{
     next(err);
   })
+
+})
 });
 
 router.post('/profile/:id/portfolio/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let theID = req.params.id
-  User.findByIdAndUpdate(theID, req.body)
+
+  User.findByIdAndUpdate(theID, {$push: {portfolio: req.body.portfolio}}, {upsert: true, new: true})
   .then(()=>{
-    res.redirect(`/profile/${theID}/portfolio`);
+
+    res.redirect(`/profile/${theID}/portfolio/edit`);
   })
   .catch((err)=>{
     next(err);
   })
+});
+
+// DELETE PORTFOLIO ROUTE
+
+router.post('/profile/:id/portfolio/delete', (req, res, next)=>{
+  let userId = req.params.id;
+
+  User.findById(userId)
+  .then(()=>{
+    
+    User.findByIdAndUpdate(userId, {$pull: {portfolio: req.body.portfolio}}, {upsert: true, new: true})
+    .then(()=>{
+      res.redirect(`/profile/${userId}/portfolio/edit`);
+    })
+
+    .catch((err)=>{
+      next(err);
+    })
+
+  .catch((err)=>{
+    next(err);
+  })
+})
 });
 
 router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/portfolio/show', {user: oneSingleUser})
   })
@@ -201,7 +220,7 @@ router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req,
 // PROFILE ROUTES
 router.get('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/edit', {user: oneSingleUser})
   })
@@ -225,7 +244,7 @@ router.post('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res
 router.get('/profile/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   
   let userId = req.params.id;
-  User.findById(userId).populate('skills')
+  User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
     res.render('user-views/show', {user: oneSingleUser})
   })

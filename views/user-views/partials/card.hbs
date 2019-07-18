@@ -34,8 +34,10 @@
   {{/if}}
 
   {{#if user.portfolio}}
-  <h3>Portfolios</h3>
-  <h5>{{user.portfolio}}</h5>
+  <h5>Portfolios</h5>
+  {{#each user.portfolio}}
+  <div class="chip black white-text" id="chip"><img src="{{siteIcon}}" alt="{{siteName}}">{{siteName}}</div>
+  {{/each}}
   {{/if}}
 
 </div>

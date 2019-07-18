@@ -8,37 +8,15 @@
         <button class="btn-small black" disabled>Skills</button>
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
-      <h4>Edit Portfolio</h4>
-      <a href="/profile/{{user._id}}/portfolio/add-new"><button type="button" class="btn-small green">Add New Portfolio</button></a>
-            
+      <h4>Edit Portfolios</h4>
+      <form action="/profile/{{user._id}}/skills/edit" method="POST">
 
-
-
-
-      {{!-- <ul id="folio-list"></ul> --}}
-
-      {{!-- id="new-folio-button" THIS THING IS USED TO ACTUALLY POST TO THE API - PUT IT ON THE NEXT PAGE --}}
-
-      {{!-- {{#each allThePortfolios}}
-        <a href="portfolios/{{../portfolio._id}}"><img src="{{../portfolio.siteIcon}}" alt="{{../portfolio.siteName}}" id="portfolios-btn"></a>
-        <p>{{../portfolio.siteName}}</p>
-        <p>{{../portfolio.siteDomain}}</p>
-      {{/each}} --}}
-      {{!-- <form action="/profile/{{user._id}}/edit" method="POST"></form>
-      <div class="input-field"><label>Name</label>
-      <input type="text" name="fullName" value="{{user.fullName}}"></div>
-      <div class="input-field"><label>Title</label>
-      <input type="text" name="title" value="{{user.title}}"></div>
-      <div class="input-field"><label>Where</label>
-      <input type="text" name="location" value="{{user.location}}"></div>
-      <div class="input-field"><label>Email</label>
-      <input type="text" name="email" value="{{user.email}}"></div>
-      <div class="input-field"><label>Phone</label>
-      <input type="text" name="phone" value="{{user.phone}}"></div>
-      <div class="input-field"><label>Per Hour Rate ($)</label>
-      <input type="number" name="rate" value="{{user.rate}}"></div>
+      {{#each user.portfolio}}
+      <div class="chip black white-text" id="chip-edit"><img src="{{this.siteIcon}}" alt="{{this.siteName}}">{{this.siteName}} <i class="close material-icons">close</i></div>
+      {{/each}}
+      
       <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
-      </form> --}}
+      </form>
     </div>
   </div>
 </div>

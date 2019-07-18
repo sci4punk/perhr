@@ -1,0 +1,34 @@
+<div class="inside">
+  <div class="row">
+    {{> card}}
+    <div class="col s12 m12 l5" id="right">
+      <div class="mini-nav center">
+        <button class="btn-small black" disabled>Profile</button> 
+        <a href="/profile/{{user._id}}/portfolio"><button class="btn-small grey darken-3">Done</button></a>
+        <button class="btn-small black" disabled>Skills</button>
+        <button class="btn-small black" disabled>$ Rate</button>
+      </div>
+      <h5>Add a Portfolio</h5>
+      <form action="/profile/{{user._id}}/portfolio/edit" method="POST">
+      <select name="portfolio">
+        {{#each allThePortfolios}}
+        <option value="{{this._id}}">{{this.siteName}}</option>
+        {{/each}}
+        </option>
+      </select>
+      <button class="btn-large save-btn waves-effect waves-light green right">Add</button>
+      </form>
+      <br><br><br><br><br>
+      <h5>Remove a Portfolio</h5>
+      <form action="/profile/{{user._id}}/portfolio/delete" method="POST">
+      <select name="portfolio">
+        {{#each user.portfolio}}
+        <option value="{{this._id}}">{{this.siteName}}</option>
+        {{/each}}
+        </option>
+      </select>
+      <button class="btn-large save-btn waves-effect waves-light red darken-3 right">Remove</button>
+      </form>
+    </div>
+  </div>
+</div>

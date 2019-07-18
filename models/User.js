@@ -12,7 +12,8 @@ const userSchema = new Schema ({
     location: String,
     phone: String,
     rate: Number,
-    portfolio: Array,
+    // portfolio: Array,
+    portfolio: [{type: Schema.Types.ObjectId, ref: 'Portfolio'}],
     // skills: Array,
     skills: [{type: Schema.Types.ObjectId, ref: 'Skill'}],
     hideLocationEmailPhone: {type: Boolean, default: false}
