@@ -1,6 +1,7 @@
 <div class="inside">
   <div class="row">
     {{> card}}
+    {{#if user.owner}}
     <div class="col s12 m12 l5" id="right">
       <div class="mini-nav center">
         <a href="/profile/{{user._id}}"><button class="btn-small black">Profile</button></a>
@@ -14,5 +15,6 @@
       <input type="number" name="rate" value="{{user.rate}}" disabled></div>
       </form>
     </div>
+    {{/if}}
   </div>
 </div>

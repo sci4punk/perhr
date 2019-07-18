@@ -1,4 +1,8 @@
+{{#if user.owner}}
 <div class="col s12 m12 l7 center" id="left">
+  {{else}}
+  <div class="col s12 m12 l12 center" id="left">
+{{/if}}
   <p class="grey-text"><small>Last updated: {{user.updated_at}}</small></p>
   {{#if user.fullName}}
   <h1>{{user.fullName}}</h1>

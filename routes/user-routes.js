@@ -47,6 +47,9 @@ router.get('/profile/:id/rate/edit', ensureLogin.ensureLoggedIn('/login'), (req,
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/rate/edit', {user: oneSingleUser})
   })
   .catch((err)=>{
@@ -70,6 +73,9 @@ router.get('/profile/:id/rate', ensureLogin.ensureLoggedIn('/login'), (req, res,
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/rate/show', {user: oneSingleUser})
   })
   .catch((err)=>{
@@ -140,6 +146,9 @@ router.get('/profile/:id/skills', ensureLogin.ensureLoggedIn('/login'), (req, re
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/skills/show', {user: oneSingleUser})
   })
   .catch((err)=>{
@@ -210,6 +219,9 @@ router.get('/profile/:id/portfolio', ensureLogin.ensureLoggedIn('/login'), (req,
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/portfolio/show', {user: oneSingleUser})
   })
   .catch((err)=>{
@@ -222,6 +234,9 @@ router.get('/profile/:id/edit', ensureLogin.ensureLoggedIn('/login'), (req, res,
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
   .then((oneSingleUser)=>{
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/edit', {user: oneSingleUser})
   })
   .catch((err)=>{
@@ -245,7 +260,10 @@ router.get('/profile/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next
   
   let userId = req.params.id;
   User.findById(userId).populate('skills').populate('portfolio')
-  .then((oneSingleUser)=>{
+  .then((oneSingleUser)=>{ 
+    if(oneSingleUser._id.toString()===req.user._id.toString()){
+      oneSingleUser.owner = true;
+    }
     res.render('user-views/show', {user: oneSingleUser})
   })
   .catch((err)=>{
