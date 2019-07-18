@@ -40,7 +40,7 @@
   {{#if user.portfolio}}
   <h6><i>Portfolios</i></h6>
   {{#each user.portfolio}}
-  <div class="chip black white-text" id="chip"><img src="{{siteIcon}}" alt="{{siteName}}">{{siteName}}</div>
+  <a href="{{url}}"><div class="chip black white-text" id="chip"><img src="{{site.siteIcon}}" alt="{{site.siteName}}">{{site.siteName}}</div></a>
   {{/each}}
   {{/if}}
 

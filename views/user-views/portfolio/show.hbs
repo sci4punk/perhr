@@ -12,7 +12,7 @@
       <h3>Portfolio</h3>
      
       {{#each user.portfolio}}
-      <div class="chip black white-text" id="chip-edit"><img src="{{this.siteIcon}}" alt="{{this.siteName}}">{{this.siteName}}</div>
+      <div class="chip black white-text" id="chip-edit"><img src="{{this.site.siteIcon}}" alt="{{this.site.siteName}}">{{this.site.siteName}}</div>
       {{/each}}
      
       {{!-- {{#if user.portfolio}}

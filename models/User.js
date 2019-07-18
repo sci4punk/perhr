@@ -13,7 +13,10 @@ const userSchema = new Schema ({
     phone: String,
     rate: Number,
     // portfolio: Array,
-    portfolio: [{type: Schema.Types.ObjectId, ref: 'Portfolio'}],
+    portfolio: [{
+      site: {type: Schema.Types.ObjectId, ref: 'Portfolio'}, 
+      url: {type: String, required: true}
+    }],
     // skills: Array,
     skills: [{type: Schema.Types.ObjectId, ref: 'Skill'}],
     hideLocationEmailPhone: {type: Boolean, default: false}

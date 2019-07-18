@@ -9,21 +9,33 @@
         <button class="btn-small black" disabled>Skills</button>
         <button class="btn-small black" disabled>$ Rate</button>
       </div>
-      <h5>Add a Portfolio</h5>
+      <h5>Edit a Portfolio</h5>
       <form action="/profile/{{user._id}}/portfolio/edit" method="POST">
-      <select name="portfolio">
-        {{#each allThePortfolios}}
-        <option value="{{this._id}}">{{this.siteName}}</option>
-        {{/each}}
-        </option>
-      </select>
-      <button class="btn-large save-btn waves-effect waves-light green right">Add</button>
+        <select name="portfolio" id="ports" >
+
+          <option value="">Choose a site</option>
+
+          {{#each allThePortfolios}}
+          {{#unless this.notabletoadd}}
+          <option value="{{this._id}}" data-url="">{{this.siteName}}</option>
+          {{/unless}}
+          {{/each}}
+
+          {{#each user.portfolio}}
+          <option value="{{this._id}}" data-url="{{this.url}}">{{this.site.siteName}}</option>
+          {{/each}}
+
+        </select>
+        <div class="input-field"><label id="personalUrl">Personal URL</label>
+        <input type="text" name="url" id="dataUrl" value="" required></div>
+        
+      <button class="btn-large save-btn waves-effect waves-light green right">Save</button>
       </form>
       <br><br><br><br><br>
       <h5>Remove a Portfolio</h5>
       <form action="/profile/{{user._id}}/portfolio/delete" method="POST">
       <select name="portfolio">
-        {{#each user.portfolio}}
+        {{#each allThePortfolios}}
         <option value="{{this._id}}">{{this.siteName}}</option>
         {{/each}}
         </option>

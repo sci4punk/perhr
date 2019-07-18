@@ -2,42 +2,24 @@
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
+  var ports = $('#ports');
+  ports.change(getval);
+  
 });
 
-// ADD NEW SITE ONCLICK
 
-// function addSiteForm() {
-//   document.getElementById("add-new-site").innerHTML = `
-//   <div class="new-folio-form">
-//     <div>
-//       <label>Site Name</label>
-//       <input class="input-field" id="siteName" type="text">
-//     </div>
-//     <div>
-//       <label>Site Domain</label>
-//       <input class="input-field" id="siteDomain" type="text">
-//     </div>
-//     <div>
-//       <label>Site Icon URL</label>
-//       <input class="input-field" id="siteIcon" type="text">
-//     </div>
-//       <button type="button" class="btn green white-text" id="new-folio-button">Add New Site</button>
-//   </div>
-//   `};
+function getval(e) {
+  
+  let currentlySelected = $(this).val();
+  let somethingElse = $(`option[value=${currentlySelected}]`).data('url');
+  $('#dataUrl').val(somethingElse);
 
-  // ADD NEW PORTFOLIO URL ONCLICK
-
-// function addPortfolioForm() {
-//   document.getElementById("add-new-url").innerHTML = `
-//   <div class="new-portfolio-url-form">
-//     <div>
-//       <label>Your Complete Profile URL</label>
-//       <input class="input-field" id="portfolioURL" type="text" value="https://">
-//     </div>
-//       <button type="button" class="btn green white-text" id="add-new-portfolio-url-button">Save</button>
-//   </div>
-//   `};
-
+  if (somethingElse){
+    $('#personalUrl').addClass('active');
+  } else {
+    $('#personalUrl').removeClass('active');
+  }
+};
 
 // PER.HR COPY URL FUNCTION - TOP RIGHT
 
