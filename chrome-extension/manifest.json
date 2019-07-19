@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "per.hr demo",
+  "version": "0.01",
+  "description": "Demo of per.hr chrome extension",
+  "icons":{
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icon16.png",
+    "default_title": "per.hr"
+    },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/in/marcos-palacios-iii/"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "permissions": [
+    "tabs",
+    "https://www.linkedin.com/in/*"
+  ]
+}
