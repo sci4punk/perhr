@@ -120,7 +120,7 @@ passport.use(new LinkedInStrategy({
       } else {
           // console.log(profile)
           const newUser = new User();
-          // newUser.username = email;
+          newUser.username = email;
           newUser.fullName = profile.displayName;
           newUser.email = email;
           newUser.linkedin = true;
