@@ -1,4 +1,4 @@
-![per.hr home screenshot](/images/perhr-home.jpg)
+![per.hr home screenshot](/public/images/perhr-home.jpg)
 
 # perhr
 
