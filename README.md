@@ -1,6 +1,6 @@
 ![per.hr home screenshot](/public/images/perhr-home.jpg)
 
-# perhr
+# per.hr
 
 This is the second project [Steve Englander](https://www.linkedin.com/in/recsci) worked on at [Ironhack](http://www.ironhack.com) in July, 2019
 
