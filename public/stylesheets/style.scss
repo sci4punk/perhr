@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font: 14px; 
+  min-height: 100%;
 }
 
 a {
@@ -67,9 +68,10 @@ input {
 
 .footer-copyright {
   padding: 20px 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
+  flex-shrink: 0;
 }
 
 .brand-logo {
