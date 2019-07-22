@@ -134,7 +134,7 @@ input {
 #left {
   background-color: #333333;
   // border: 1px solid purple;
-  height: 85vh;
+  min-height: 650px;
   color: white;
   padding: 0 25px;
 }
@@ -142,7 +142,8 @@ input {
 #right {
   background-color: #cccccc;
   // border: 1px solid green;
-  height: 85vh;
+  min-height: 650px;
+  
   color: black;
   padding: 0 40px;
   // font-weight: bold;

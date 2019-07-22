@@ -108,13 +108,13 @@ input {
 
 #left {
   background-color: #333333;
-  height: 85vh;
+  min-height: 650px;
   color: white;
   padding: 0 25px; }
 
 #right {
   background-color: #cccccc;
-  height: 85vh;
+  min-height: 650px;
   color: black;
   padding: 0 40px; }
 
