@@ -2,7 +2,7 @@
 
 # per.hr
 
-This is the second project [Steve Englander](https://www.linkedin.com/in/steveenglander) worked on at [Ironhack](http://www.ironhack.com) in July, 2019
+This is the second project worked on at [Ironhack](http://www.ironhack.com) in July, 2019
 
 per.hr currently runs on Heroku, and can be found here: http://perhr.herokuapp.com/
 
@@ -11,6 +11,3 @@ per.hr currently runs on Heroku, and can be found here: http://perhr.herokuapp.c
 Once a few more features are added, it will be moved to it's new home at it's proper domain: per.hr
 
 The per.hr Google Chrome extension is currently in development
-
-For more information, you can contact Steve Englander through [Github](https://github.com/sci4punk)
-
