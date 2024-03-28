@@ -1,5 +1,3 @@
-![per.hr home screenshot](/public/images/perhr-home.jpg)
-
 # per.hr
 
 This is the second project worked on at [Ironhack](http://www.ironhack.com) in July, 2019
